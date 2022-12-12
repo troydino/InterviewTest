@@ -1,4 +1,4 @@
-﻿namespace InterviewTest.Models;
+﻿namespace InterviewTest.Models.ModelInterfaces;
 
 internal interface IFileManagerModel
 {
