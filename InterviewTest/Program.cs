@@ -1,16 +1,18 @@
 ﻿FileTesterModel fileTesterModel = new FileTesterModel(new FileManagerModel());
 
-List<TestFileModel> filesToTestList = new List<TestFileModel>()
+List<FileModel> filesToTestList = new List<FileModel>()
 {
-    new TestFileModel()
+    new FileModel()
     {
+        Name = "File Number 1",
         FilePath = @"C:\Software\TestFile.txt",
         FileContent = "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
                       "count the number of lines in a file\r\n */\r\n int countLines( File inFile );" +
                       "//not the real signature\r\n}   "
     },
-    new TestFileModel()
+    new FileModel()
     {
+        Name = "File Number 2",
         FilePath = @"C:\Software\TestFile2.txt",
         FileContent = "/*****\r\n* This is a test program with 5 lins of code\r\n* \\/* " +
                       "no nesting allowed!\r\n//*****//***///Slightly pathological comment ending...\r\n \r\n" +
@@ -20,13 +22,13 @@ List<TestFileModel> filesToTestList = new List<TestFileModel>()
 };
 
 
-fileTesterModel.FilePath1 = @"C:\Software\TestFile.txt";
-fileTesterModel.FilePath2 = @"C:\Software\TestFile2.txt";
+//fileTesterModel.FilePath1 = @"C:\Software\TestFile.txt";
+//fileTesterModel.FilePath2 = @"C:\Software\TestFile2.txt";
 
 //fileTesterModel.CreateFiles();
 
 fileTesterModel.CreateFilesFromList(filesToTestList);
-fileTesterModel.RunFileTest();
+fileTesterModel.RunFileTest(filesToTestList);
 
 // hang program
 Console.ReadLine();

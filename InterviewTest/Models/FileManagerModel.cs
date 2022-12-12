@@ -42,7 +42,7 @@ internal class FileManagerModel : IFileManagerModel
 
 
     /// <summary>
-    /// Reads a file from the FIle location parameter.
+    /// Reads a file from the File location parameter.
     /// Returns a string as the file text
     /// </summary>
     /// <param name="filePath"></param>

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace InterviewTest.Models
 {
-    public class TestFileModel
+    public class FileModel
     {
+        public string Name { get; set; }
 
         public string FilePath { get; set; }
 
