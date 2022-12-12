@@ -23,14 +23,7 @@ namespace InterviewTest.Models
         {
 
            
-            fileManager.CreateFile(FilePath1, "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
-                                              "count the number of lines in a file\r\n */\r\n int countLines( File inFile );" +
-                                              "//not the real signature\r\n}   ");
-
-            fileManager.CreateFile(FilePath2, "/*****\r\n* This is a test program with 5 lins of code\r\n* \\/* " +
-                                              "no nesting allowed!\r\n//*****//***///Slightly pathological comment ending...\r\n \r\n" +
-                                              "public class Hello {\r\n    public static final void main(String[] args) { //gotta love Java\r\n    //say hello\r\n    " +
-                                              "System./*wait*/out./*for*/println/*it*/(\"Hello/*\");\r\n  }\r\n \r\n}   ");
+            
 
             string result = fileManager.ReadFromFile(FilePath1);
             Console.WriteLine(result + "\n");
@@ -76,6 +69,22 @@ namespace InterviewTest.Models
             Console.WriteLine($"Number of code lines = {numberOfCodeLines}");
 
             return numberOfCodeLines;
+        }
+
+
+        public int CreateFiles()
+        {
+
+            fileManager.CreateFile(FilePath1, "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
+                                              "count the number of lines in a file\r\n */\r\n int countLines( File inFile );" +
+                                              "//not the real signature\r\n}   ");
+
+            fileManager.CreateFile(FilePath2, "/*****\r\n* This is a test program with 5 lins of code\r\n* \\/* " +
+                                              "no nesting allowed!\r\n//*****//***///Slightly pathological comment ending...\r\n \r\n" +
+                                              "public class Hello {\r\n    public static final void main(String[] args) { //gotta love Java\r\n    //say hello\r\n    " +
+                                              "System./*wait*/out./*for*/println/*it*/(\"Hello/*\");\r\n  }\r\n \r\n}   ");
+
+            return 0;
         }
 
       
