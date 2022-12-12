@@ -2,3 +2,6 @@
 
 fileTesterModel.CreateFiles();
 fileTesterModel.RunFileTest();
+
+// hang program
+Console.ReadLine();

@@ -29,21 +29,20 @@ namespace InterviewTest.Models
         {
             //get file 1
             string file1Text = fileManager.ReadFromFile(FilePath1);
-            Console.WriteLine(file1Text + "\n");
+            Console.WriteLine($"File 1 Text:\n\n{file1Text}\n");
 
-            //test file 1
-            CheckForCodeLines(FilePath1);
+            //test file 1 and display results
+            Console.WriteLine($"Number of code lines in file 1 = {CheckForCodeLines(FilePath1)}");
 
-            Console.WriteLine();
+            Console.WriteLine("\n---------------------------------\n");
 
             //get file 2
             string file2Text = fileManager.ReadFromFile(FilePath2);
-            Console.WriteLine(file2Text + "\n");
+            Console.WriteLine($"File 2 Text:\n\n{file2Text}\n");
 
-            //test file 2
-            CheckForCodeLines(FilePath2);
 
-            Console.ReadLine();
+            //test file 2 and display results
+            Console.WriteLine($"Number of code lines in file 2 = {CheckForCodeLines(FilePath2)}");
 
             return 0;
         }
@@ -62,7 +61,6 @@ namespace InterviewTest.Models
             // Read the file and display it line by line.  
             foreach (string line in File.ReadLines(FilePath))
             {
-
                 var trim = line.Trim();
 
                 if (!trim.StartsWith('/') && !trim.StartsWith('*') && !String.IsNullOrWhiteSpace(trim))
@@ -71,11 +69,7 @@ namespace InterviewTest.Models
                 }
             }
 
-            var numberOfCodeLines = codeLines.Count;
-
-            Console.WriteLine($"Number of code lines = {numberOfCodeLines}");
-
-            return numberOfCodeLines;
+            return codeLines.Count;
         }
 
 
