@@ -23,7 +23,7 @@ internal class FileTesterModel
     /// Tests the file for lines of code
     /// </summary>
     /// <returns></returns>
-    public int RunFileTest(List<FileModel> fileModels)
+    public void RunFileTest(List<FileModel> fileModels)
     {
         #region Old code now re-factored
 
@@ -51,8 +51,6 @@ internal class FileTesterModel
             Console.WriteLine($"Number of code lines in file 1 = {CheckForCodeLines(f.FilePath)}");
             Console.WriteLine("\n---------------------------------\n");
         });
-
-        return 0;
     }
 
     /// <summary>
@@ -61,9 +59,11 @@ internal class FileTesterModel
     /// <param name="FilePath"></param>
     public int CheckForCodeLines(string FilePath)
     {
-        List<string> codeLines = new List<string>();
+        //List<string> codeLines = new List<string>();
 
-        codeLines.Clear();
+        //codeLines.Clear();
+
+        int codeLines = 0;
 
         // Read the file and display it line by line.
         foreach (string line in File.ReadLines(FilePath))
@@ -72,11 +72,13 @@ internal class FileTesterModel
 
             if (!trim.StartsWith('/') && !trim.StartsWith('*') && !String.IsNullOrWhiteSpace(trim))
             {
-                codeLines.Add(line);
+                //codeLines.Add(line);
+                codeLines++;
             }
         }
 
-        return codeLines.Count;
+        //return codeLines.Count;
+        return codeLines;
     }
 
     /// <summary>
@@ -84,10 +86,27 @@ internal class FileTesterModel
     /// </summary>
     /// <param name="fileModels"></param>
     /// <returns></returns>
-    public int CreateFilesFromList(List<FileModel> fileModels)
+    public void CreateFilesFromList(List<FileModel> fileModels)
     {
         fileModels.ForEach(f => _fileManagerModel.CreateFile(f.FilePath, f.FileContent));
+    }
 
-        return 0;
+    public void TestAllFilesInFolder(string folderPath)
+    {
+        //var files = _fileManagerModel.GetAllFiles(folderPath);
+
+        //List<FileModel> filesToTestList = new List<FileModel>();
+
+        //foreach (var VARIABLE in files)
+        //{
+        //    filesToTestList.Add(new FileModel()
+        //    {
+        //        Name = VARIABLE.ToString(),
+
+        //    });
+        //}
+
+
+        
     }
 }

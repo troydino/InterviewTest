@@ -1,6 +1,6 @@
 ﻿FileTesterModel fileTesterModel = new FileTesterModel(new FileManagerModel());
 
-List<FileModel> filesToTestList = new List<FileModel>()
+List<FileModel>filesToTestList = new List<FileModel>()
 {
     //Used constructor instead of object initializer so the Properties were not null
     new FileModel(
@@ -24,7 +24,10 @@ List<FileModel> filesToTestList = new List<FileModel>()
 //fileTesterModel.CreateFiles();
 
 fileTesterModel.CreateFilesFromList(filesToTestList);
+
 fileTesterModel.RunFileTest(filesToTestList);
+
+fileTesterModel.TestAllFilesInFolder(@"C:\Software");
 
 // hang program
 Console.ReadLine();

@@ -52,4 +52,9 @@ internal class FileManagerModel : IFileManagerModel
 
         return File.ReadAllText(filePath);
     }
+
+    public string[] GetAllFiles(string folderPath)
+    {
+        return Directory.GetFiles(folderPath);
+    }
 }

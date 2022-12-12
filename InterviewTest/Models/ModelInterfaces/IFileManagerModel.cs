@@ -17,4 +17,10 @@ internal interface IFileManagerModel
     /// <param name="filePath"></param>
     /// <returns></returns>
     string ReadFromFile(string filePath);
+
+    /// <summary>
+    /// Returns all the files in the given folder
+    /// </summary>
+    /// <param name="folderPath"></param>
+    string[] GetAllFiles(string folderPath);
 }
