@@ -9,15 +9,20 @@ namespace InterviewTest.Models
     internal class FileTesterModel
     {
 
+        const string FilePath1 = @"C:\Software\TestFile.txt";
+        const string FilePath2 = @"C:\Software\TestFile2.txt";
+
+        FileManagerModel fileManager = new();
+
+
+        /// <summary>
+        /// Tests the file for lines of code
+        /// </summary>
+        /// <returns></returns>
         public int RunFileTest()
         {
 
-            const string FilePath1 = @"C:\Software\TestFile.txt";
-            const string FilePath2 = @"C:\Software\TestFile2.txt";
-
-            
-
-            FileManagerModel fileManager = new();
+           
             fileManager.CreateFile(FilePath1, "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
                                               "count the number of lines in a file\r\n */\r\n int countLines( File inFile );" +
                                               "//not the real signature\r\n}   ");
