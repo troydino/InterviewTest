@@ -9,12 +9,12 @@ internal class FileTesterModel
     /// <summary>
     /// location of the first file on local machine
     /// </summary>
-    const string FilePath1 = @"C:\Software\TestFile.txt";
+    public string FilePath1;
 
     /// <summary>
     /// location of the second file on the local machine
     /// </summary>
-    const string FilePath2 = @"C:\Software\TestFile2.txt";
+    public string FilePath2;
 
 
     public FileTesterModel(IFileManagerModel fileManagerModel)

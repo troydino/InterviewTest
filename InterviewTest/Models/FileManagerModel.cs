@@ -22,11 +22,12 @@ internal class FileManagerModel : IFileManagerModel
         {
             File.WriteAllText(filePath, text);
         }
-        catch (Exception e)
+        catch (Exception exception)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(exception);
             return -2;
         }
+
         return 0;
     }
 
