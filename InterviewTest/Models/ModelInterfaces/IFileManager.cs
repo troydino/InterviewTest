@@ -1,6 +1,6 @@
 ﻿namespace InterviewTest.Models.ModelInterfaces;
 
-internal interface IFileManagerModel
+internal interface IFileManager
 {
     /// <summary>
     /// Creates a file taking the file path and string body as parameters

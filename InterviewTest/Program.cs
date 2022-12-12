@@ -23,10 +23,13 @@ List<FileModel>filesToTestList = new List<FileModel>()
 
 //fileTesterModel.CreateFiles();
 
+// I have kept the above list to still create the files, this will now be solved with all files in the folder
 fileTesterModel.CreateFilesFromList(filesToTestList);
 
 fileTesterModel.RunFileTest(filesToTestList);
 
+//Improved way of accessing the files using the folder name and counting all the lines from all the files in the folder
+Console.WriteLine("Now Using Folder Method\n");
 fileTesterModel.TestAllFilesInFolder(@"C:\Software");
 
 // hang program

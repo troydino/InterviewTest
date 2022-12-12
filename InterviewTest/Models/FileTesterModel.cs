@@ -1,8 +1,10 @@
-﻿namespace InterviewTest.Models;
+﻿using System.Text.RegularExpressions;
+
+namespace InterviewTest.Models;
 
 internal class FileTesterModel
 {
-    private readonly IFileManagerModel _fileManagerModel;
+    private readonly IFileManager _fileManagerModel;
 
     ///// <summary>
     ///// location of the first file on local machine
@@ -14,7 +16,7 @@ internal class FileTesterModel
     ///// </summary>
     //public string FilePath2;
 
-    public FileTesterModel(IFileManagerModel fileManagerModel)
+    public FileTesterModel(IFileManager fileManagerModel)
     {
         _fileManagerModel = fileManagerModel;
     }
@@ -45,11 +47,15 @@ internal class FileTesterModel
 
         #endregion Old code now re-factored
 
+        int fileNumber = 1;
+
         fileModels.ForEach(f =>
         {
-            Console.WriteLine($"File 1 Text:\n\n{_fileManagerModel.ReadFromFile(f.FilePath)}\n");
-            Console.WriteLine($"Number of code lines in file 1 = {CheckForCodeLines(f.FilePath)}");
+            Console.WriteLine($"File {fileNumber} Text:\n\n{_fileManagerModel.ReadFromFile(f.FilePath)}\n");
+            Console.WriteLine($"Number of code lines in File {fileNumber} = {CheckForCodeLines(f.FilePath)}");
             Console.WriteLine("\n---------------------------------\n");
+
+            fileNumber++;
         });
     }
 
@@ -68,11 +74,22 @@ internal class FileTesterModel
         // Read the file and display it line by line.
         foreach (string line in File.ReadLines(FilePath))
         {
-            var trim = line.Trim();
+            //var trim = line.Trim();
 
-            if (!trim.StartsWith('/') && !trim.StartsWith('*') && !String.IsNullOrWhiteSpace(trim))
+            //if (!trim.StartsWith('/') && !trim.StartsWith('*') && !String.IsNullOrWhiteSpace(trim))
+            //{
+            //    //codeLines.Add(line);
+            //    codeLines++;
+            //}
+
+            // solved using Regex, Still needed to trim the start to remove the whitespace
+
+            string pattern = @"^[*/]";
+            Regex regex = new Regex(pattern);
+
+            // I cant seem to ignore the whitespace at the beginning of the line
+            if (!regex.IsMatch(line.TrimStart()) && !String.IsNullOrWhiteSpace(line))
             {
-                //codeLines.Add(line);
                 codeLines++;
             }
         }
@@ -91,22 +108,24 @@ internal class FileTesterModel
         fileModels.ForEach(f => _fileManagerModel.CreateFile(f.FilePath, f.FileContent));
     }
 
+    /// <summary>
+    /// Takes a folder path and displays the file name and number of lines of code contained
+    /// </summary>
+    /// <param name="folderPath"></param>
     public void TestAllFilesInFolder(string folderPath)
     {
-        //var files = _fileManagerModel.GetAllFiles(folderPath);
+        var files = _fileManagerModel.GetAllFiles(folderPath);
 
-        //List<FileModel> filesToTestList = new List<FileModel>();
+        foreach (var file in files)
+        {
 
-        //foreach (var VARIABLE in files)
-        //{
-        //    filesToTestList.Add(new FileModel()
-        //    {
-        //        Name = VARIABLE.ToString(),
+            int linesWithCode = CheckForCodeLines(file);
 
-        //    });
-        //}
+            Console.WriteLine($"File: {file}\nContains {linesWithCode} lines of code.\n--------------------------------------\n");
+
+        }
 
 
-        
+
     }
 }

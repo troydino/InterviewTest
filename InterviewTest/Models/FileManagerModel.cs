@@ -1,6 +1,6 @@
 ﻿namespace InterviewTest.Models;
 
-internal class FileManagerModel : IFileManagerModel
+internal class FileManagerModel : IFileManager
 {
     /// <summary>
     /// Creates a file taking the file path and string body as parameters
