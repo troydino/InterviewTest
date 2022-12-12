@@ -1,16 +1,13 @@
-﻿using InterviewTest.Models.ModelInterfaces;
-
-namespace InterviewTest.Models;
+﻿namespace InterviewTest.Models;
 
 internal class FileManagerModel : IFileManagerModel
 {
-
     /// <summary>
     /// Creates a file taking the file path and string body as parameters
     /// return 0 = success
-    /// return -1 = file path is null or whitespace 
-    /// return -2 = text is null or whitespace 
-    /// return -3 = exception thrown from file.WriteAllText method 
+    /// return -1 = file path is null or whitespace
+    /// return -2 = text is null or whitespace
+    /// return -3 = exception thrown from file.WriteAllText method
     /// </summary>
     /// <param name="filePath"></param>
     /// <param name="text"></param>
@@ -40,7 +37,6 @@ internal class FileManagerModel : IFileManagerModel
         return 0;
     }
 
-
     /// <summary>
     /// Reads a file from the File location parameter.
     /// Returns a string as the file text
@@ -56,5 +52,4 @@ internal class FileManagerModel : IFileManagerModel
 
         return File.ReadAllText(filePath);
     }
-
 }

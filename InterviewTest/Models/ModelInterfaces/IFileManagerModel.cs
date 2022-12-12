@@ -3,7 +3,7 @@
 internal interface IFileManagerModel
 {
     /// <summary>
-    /// Creates a file taking the file path and string body as parameters 
+    /// Creates a file taking the file path and string body as parameters
     /// </summary>
     /// <param name="filePath"></param>
     /// <param name="text"></param>
