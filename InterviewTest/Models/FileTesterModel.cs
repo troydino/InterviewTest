@@ -27,16 +27,20 @@ namespace InterviewTest.Models
         /// <returns></returns>
         public int RunFileTest()
         {
+            //get file 1
+            string file1Text = fileManager.ReadFromFile(FilePath1);
+            Console.WriteLine(file1Text + "\n");
 
-            string result = fileManager.ReadFromFile(FilePath1);
-            Console.WriteLine(result + "\n");
-
+            //test file 1
             CheckForCodeLines(FilePath1);
 
             Console.WriteLine();
 
-            string result2 = fileManager.ReadFromFile(FilePath2);
-            Console.WriteLine(result2 + "\n");
+            //get file 2
+            string file2Text = fileManager.ReadFromFile(FilePath2);
+            Console.WriteLine(file2Text + "\n");
+
+            //test file 2
             CheckForCodeLines(FilePath2);
 
             Console.ReadLine();
