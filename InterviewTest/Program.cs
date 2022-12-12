@@ -1,4 +1,4 @@
-﻿FileTesterModel fileTesterModel = new FileTesterModel();
+﻿FileTesterModel fileTesterModel = new FileTesterModel(new FileManagerModel());
 
 fileTesterModel.CreateFiles();
 fileTesterModel.RunFileTest();

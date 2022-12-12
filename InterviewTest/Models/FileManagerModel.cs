@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterviewTest.Models
 {
-    internal class FileManagerModel
+    internal class FileManagerModel : IFileManagerModel
     {
 
         /// <summary>

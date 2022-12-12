@@ -8,6 +8,8 @@ namespace InterviewTest.Models
 {
     internal class FileTesterModel
     {
+        private readonly IFileManagerModel _fileManagerModel;
+
         /// <summary>
         /// location of the first file on local machine
         /// </summary>
@@ -18,7 +20,11 @@ namespace InterviewTest.Models
         /// </summary>
         const string FilePath2 = @"C:\Software\TestFile2.txt";
 
-        FileManagerModel fileManager = new();
+
+        public FileTesterModel(IFileManagerModel fileManagerModel)
+        {
+            _fileManagerModel = fileManagerModel;
+        }
 
 
         /// <summary>
@@ -28,7 +34,7 @@ namespace InterviewTest.Models
         public int RunFileTest()
         {
             //get file 1
-            string file1Text = fileManager.ReadFromFile(FilePath1);
+            string file1Text = _fileManagerModel.ReadFromFile(FilePath1);
             Console.WriteLine($"File 1 Text:\n\n{file1Text}\n");
 
             //test file 1 and display results
@@ -37,7 +43,7 @@ namespace InterviewTest.Models
             Console.WriteLine("\n---------------------------------\n");
 
             //get file 2
-            string file2Text = fileManager.ReadFromFile(FilePath2);
+            string file2Text = _fileManagerModel.ReadFromFile(FilePath2);
             Console.WriteLine($"File 2 Text:\n\n{file2Text}\n");
 
 
@@ -80,12 +86,12 @@ namespace InterviewTest.Models
         public int CreateFiles()
         {
 
-            fileManager.CreateFile(FilePath1, "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
+            _fileManagerModel.CreateFile(FilePath1, "//This file contains 3 lines of code\r\n public interface Dave {\r\n /**\r\n * " +
                                               "count the number of lines in a file\r\n */\r\n int countLines( File inFile );" +
                                               "//not the real signature\r\n}   ");
 
 
-            fileManager.CreateFile(FilePath2, "/*****\r\n* This is a test program with 5 lins of code\r\n* \\/* " +
+            _fileManagerModel.CreateFile(FilePath2, "/*****\r\n* This is a test program with 5 lins of code\r\n* \\/* " +
                                               "no nesting allowed!\r\n//*****//***///Slightly pathological comment ending...\r\n \r\n" +
                                               "public class Hello {\r\n    public static final void main(String[] args) { //gotta love Java\r\n    //say hello\r\n    " +
                                               "System./*wait*/out./*for*/println/*it*/(\"Hello/*\");\r\n  }\r\n \r\n}   ");
