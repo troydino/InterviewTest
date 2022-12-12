@@ -8,8 +8,14 @@ namespace InterviewTest.Models
 {
     internal class FileTesterModel
     {
-
+        /// <summary>
+        /// location of the first file on local machine
+        /// </summary>
         const string FilePath1 = @"C:\Software\TestFile.txt";
+
+        /// <summary>
+        /// location of the second file on the local machine
+        /// </summary>
         const string FilePath2 = @"C:\Software\TestFile2.txt";
 
         FileManagerModel fileManager = new();
@@ -21,9 +27,6 @@ namespace InterviewTest.Models
         /// <returns></returns>
         public int RunFileTest()
         {
-
-           
-            
 
             string result = fileManager.ReadFromFile(FilePath1);
             Console.WriteLine(result + "\n");
@@ -72,6 +75,10 @@ namespace InterviewTest.Models
         }
 
 
+        /// <summary>
+        /// Creates the files from the hard coded text
+        /// </summary>
+        /// <returns></returns>
         public int CreateFiles()
         {
 
