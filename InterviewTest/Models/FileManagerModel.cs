@@ -17,7 +17,20 @@ namespace InterviewTest.Models
         /// <returns></returns>
         public int CreateFile(string filePath, string text)
         {
-            File.WriteAllText(filePath, text);
+            if (String.IsNullOrWhiteSpace(filePath) || String.IsNullOrWhiteSpace(text))
+            {
+                return -1;
+            }
+
+            try
+            {
+                File.WriteAllText(filePath, text);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return -2;
+            }
             return 0;
         }
 
@@ -30,6 +43,11 @@ namespace InterviewTest.Models
         /// <returns></returns>
         public string ReadFromFile(string filePath)
         {
+            if (String.IsNullOrWhiteSpace(filePath))
+            {
+                return "Error with FilePath, Is Null Or Whitespace";
+            }
+
             return File.ReadAllText(filePath);
         }
 
