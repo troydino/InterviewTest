@@ -84,7 +84,10 @@ internal class FileTesterModel
 
             // solved using Regex, Still needed to trim the start to remove the whitespace
 
-            string pattern = @"^[*/]";
+            //string pattern = @"^[*/]";
+
+            // Fixed by asking ChatGPT WTF
+            string pattern = @"^\s*[*/]";
             Regex regex = new Regex(pattern);
 
             // I cant seem to ignore the whitespace at the beginning of the line
